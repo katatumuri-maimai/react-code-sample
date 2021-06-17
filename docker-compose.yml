@@ -1,0 +1,13 @@
+version: '3'
+services:
+ node:
+   build:
+     context: .
+     dockerfile: ./Dockerfile
+   volumes:
+    - ./:/usr/src/app
+
+   command: sh -c 'sh container-init.sh'
+
+   ports:
+    - 3000:3000
