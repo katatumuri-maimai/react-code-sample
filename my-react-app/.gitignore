@@ -26,3 +26,6 @@ package.json
 yarn.lock
 
 /src/reportWebVitals.js
+
+memo.md
+README.md

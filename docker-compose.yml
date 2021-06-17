@@ -10,4 +10,4 @@ services:
    command: sh -c 'sh container-init.sh'
 
    ports:
-    - 3000:3000
+    - 3030:3030
