@@ -34,9 +34,9 @@ jobs:
       
       - run: npm i gh-pages --save-dev
         working-directory: ${{env.working-directory}}
-      - run: git config --local user.email "action@github.com"
+      - run: git config --local user.email ${{MY_SECRET_MAIL}}
         working-directory: ${{env.working-directory}}
-      - run: git config --local user.name "GitHub Action"
+      - run: git config --local user.name ${{MY_SECRET_NAME}}
         working-directory: ${{env.working-directory}}
       - run: npm run deploy
         working-directory: ${{env.working-directory}}
@@ -47,5 +47,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/develop'
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{secrets.GITHUB_TOKEN }}
           publish_dir: ./my-react-app
