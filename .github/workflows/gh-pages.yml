@@ -31,6 +31,11 @@ jobs:
         working-directory: ${{env.working-directory}}
       - run: npm run build
         working-directory: ${{env.working-directory}}
+      
+      - run: npm i gh-pages --save-dev
+        working-directory: ${{env.working-directory}}
+      - run: npm deploy
+        working-directory: ${{env.working-directory}}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
