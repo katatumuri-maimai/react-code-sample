@@ -7,7 +7,7 @@
   margin: 0;
 }
 
-#modalpage .modal{
+.modal{
   display: flex;
   position: absolute;
   flex-direction: column;
@@ -27,7 +27,7 @@
   -ms-transform: translate(-50%, -50%);
 }
 
-#modalpage button{
+button{
   width: 100px;
   height: 40px;
   border-radius: 10px;

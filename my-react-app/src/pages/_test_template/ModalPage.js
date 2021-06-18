@@ -6,12 +6,15 @@ import Modal_ClassComponent from './Modal_ClassComponent';
 
 
 
+
+
+
 class ModalPage extends React.Component {
 
   render(){
       return (
         <div id="modalpage" className="modalpage">
-          <h1>modalテスト</h1>
+          <h2>modalテスト</h2>
             <Link to= "/ModalPage/Modal_ClassComponent">クラスコンポーネントの例</Link>
             <Link to= "/ModalPage/Modal_FunctionComponent">関数コンポーネントの例</Link>
           <Switch>

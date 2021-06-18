@@ -9,8 +9,8 @@ class Home extends React.Component {
   render(){
       return (
 
-        <div id="modalpage">
-          <h1>Home</h1>
+        <div id="home" className="home">
+          <h2>Home</h2>
             <Link to= "/ModalPage">モーダルテストページ</Link>
         </div>
       );
