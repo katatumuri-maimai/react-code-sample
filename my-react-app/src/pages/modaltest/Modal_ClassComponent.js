@@ -43,7 +43,7 @@ class Modal_ClassComponent extends React.Component {
 
   render(){
       return (
-        <div className="modalpage">
+        <div id="modalpage" className="modalpage">
           <h2>クラスコンポーネント</h2>
             <button onClick={(event)=>{this.openModal(event)}}>モーダルを開く</button>
 
