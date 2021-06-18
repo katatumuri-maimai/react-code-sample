@@ -34,7 +34,7 @@ jobs:
       
       - run: npm i gh-pages --save-dev
         working-directory: ${{env.working-directory}}
-      - run: npm deploy
+      - run: npm run deploy
         working-directory: ${{env.working-directory}}
 
       - name: Deploy
