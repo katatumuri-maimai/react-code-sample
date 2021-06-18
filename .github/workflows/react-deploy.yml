@@ -7,35 +7,21 @@ on:
     branches: [main]
 
 jobs:
-  build_test_deploy:
-    runs-on: ubuntu-18.04
-    timeout-minutes: 10
+name: React app deployement
 
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      - name: Install Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16
-
-      - name: Install
-        run: |
-          cd my-react-app
-          npm install
-
-      - name: Build
-        run: |
-          cd my-react-app
-          npm build
-
-      - name: Test
-        run: |
-          cd my-react-app
-          npm test
-
-      - name: Deploy
-        run: |
-          cd my-react-app
-          gh-pages -d build
+    - name: Deploy react app to github pages
+      uses: tanwanimohit/deploy-react-to-ghpages@v1.0.1
