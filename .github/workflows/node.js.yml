@@ -16,4 +16,9 @@ jobs:
 
     - name: Deploy react app to github pages
       uses: tanwanimohit/deploy-react-to-ghpages@v1.0.1
-      working-directory: ./my-react-app
+      
+    - name: deploy
+      run: |
+        npm nuild
+        gh-pages -d build
+      working-directory: my-react-app
