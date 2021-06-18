@@ -22,20 +22,20 @@ jobs:
 
       - name: Install
         run: |
+          cd my-react-app
           npm install
-        working-directory: /my-react-app/
 
       - name: Build
         run: |
+          cd my-react-app
           npm build
-        working-directory: /my-react-app/
 
       - name: Test
         run: |
+          cd my-react-app
           npm test
-        working-directory: /my-react-app/
 
       - name: Deploy
         run: |
+          cd my-react-app
           gh-pages -d build
-        working-directory: /my-react-app/
