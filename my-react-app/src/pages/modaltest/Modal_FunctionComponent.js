@@ -6,10 +6,10 @@ import './modals.css';
 function Modal(props){
 
   return(
-      <div id="modal" className="modal">
-      <div>
-        <p>モーダル</p>
-        <button onClick={props.onClick}>閉じるボタン</button>
+      <div id="modal" className="modal" onClick={(event)=>{event.stopPropagation()}}>
+        <div>
+          <p>モーダル</p>
+          <button onClick={props.onClick}>閉じるボタン</button>
         </div>
       </div>
   )
@@ -21,36 +21,31 @@ export default function Modal_FunctionComponent(){
 
   const[isModalOpen,setIsModalOpen]=useState(false)
 
-  const clickOutside= useCallback((event) =>{
-    if(!event.target.closest('.modal')) {
-      closeModal()
-    }
+  const closeModal= useCallback((event) =>{
+    setIsModalOpen(false)
+    document.removeEventListener('click',closeModal)
   },[])
 
   useEffect(()=>{
-    if(isModalOpen){
-      document.addEventListener('click',clickOutside)
-    }
     return ()=>{
-      document.removeEventListener('click',clickOutside)
+      document.removeEventListener('click',closeModal)
     }
-  },[clickOutside,isModalOpen])
+  },[closeModal])
 
 
-  function openModal(){
+  function openModal(event){
     setIsModalOpen(true)
-  }
-  function closeModal(){
-    setIsModalOpen(false)
+    document.addEventListener('click',closeModal)
+    event.stopPropagation()
   }
 
 
   return (
     <div className="modalpage">
-      <h1>関数コンポーネント</h1>
-      <button onClick={()=>{openModal()}}>モーダルを開く</button>
+      <h2>関数コンポーネント</h2>
+      <button onClick={(event)=>{openModal(event)}}>モーダルを開く</button>
 
-      {isModalOpen? <Modal onClick={()=>{closeModal()}}/> :""}
+      {isModalOpen? <Modal onClick={(event)=>{closeModal(event)}}/> :""}
 
     </div>
   );
