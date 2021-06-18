@@ -1,0 +1,42 @@
+name: React
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build_test_deploy:
+    runs-on: ubuntu-18.04
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+
+      - name: Install
+        run: |
+          npm install
+        working-directory: my-react-app
+
+      - name: Build
+        run: |
+          npm build
+        working-directory: my-react-app
+
+      - name: Test
+        run: |
+          yarn test
+        working-directory: my-react-app
+
+      - name: Deploy
+        run: |
+          gh-pages -d build
+        working-directory: my-react-app
+        
