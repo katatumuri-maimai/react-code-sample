@@ -34,9 +34,9 @@ jobs:
       
       - run: npm i gh-pages --save-dev
         working-directory: ${{env.working-directory}}
-      - run: git config --local user.email ${{MY_SECRET_MAIL}}
+      - run: git config --local user.email ${{secrets.MY_SECRET_MAIL}}
         working-directory: ${{env.working-directory}}
-      - run: git config --local user.name ${{MY_SECRET_NAME}}
+      - run: git config --local user.name ${{secrets.MY_SECRET_NAME}}
         working-directory: ${{env.working-directory}}
       - run: npm run deploy
         working-directory: ${{env.working-directory}}
