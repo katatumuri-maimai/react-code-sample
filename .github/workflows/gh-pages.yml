@@ -34,12 +34,14 @@ jobs:
       
       - run: npm i gh-pages --save-dev
         working-directory: ${{env.working-directory}}
-      - run: |
-          npm run deploy
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          gh-pages -d build
-          working-directory: ${{env.working-directory}}
+      - run: npm run deploy
+        working-directory: ${{env.working-directory}}
+      - run: git config --local user.email "action@github.com"
+        working-directory: ${{env.working-directory}}
+      - run: git config --local user.name "GitHub Action"
+        working-directory: ${{env.working-directory}}
+      - run: gh-pages -d build
+        working-directory: ${{env.working-directory}}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
