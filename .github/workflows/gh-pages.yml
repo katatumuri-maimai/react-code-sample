@@ -9,6 +9,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-18.04
+    env:
+       working-directory: ./my-react-app
     steps:
       - uses: actions/checkout@v2
 
@@ -26,7 +28,9 @@ jobs:
             ${{ runner.os }}-node-
 
       - run: npm ci
+        working-directory: ${{env.working-directory}}
       - run: npm run build
+        working-directory: ${{env.working-directory}}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
