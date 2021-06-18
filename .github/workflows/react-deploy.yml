@@ -32,11 +32,10 @@ jobs:
 
       - name: Test
         run: |
-          yarn test
+          npm test
         working-directory: my-react-app
 
       - name: Deploy
         run: |
           gh-pages -d build
         working-directory: my-react-app
-        
