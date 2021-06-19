@@ -2,9 +2,9 @@ name: github pages
 
 on:
   push:
-    branches: [katatumuri-maimai-patch-1]
+    branches: [develop]
   pull_request:
-    branches: [katatumuri-maimai-patch-1]
+    branches: [develop]
 
 jobs:
   deploy:
@@ -27,27 +27,11 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-
-#       - run: npm ci
-#         working-directory: ${{env.working-directory}}
-      - run: npm i gh-pages --save-dev
+            
+      - name: Install gh-pages
+        run: npm i gh-pages --save-dev
         working-directory: ${{env.working-directory}}
-#       - run: git config --local user.email "action@github.com"
-#         working-directory: ${{env.working-directory}}
-#       - run: git config --local user.name "GitHub Action"
-#         working-directory: ${{env.working-directory}}
-#       - run: npm run deploy
-#         working-directory: ${{env.working-directory}}
-#       - run: gh-pages -d build
-#         working-directory: ${{env.working-directory}}
-
-#       - name: Deploy
-#         uses: peaceiris/actions-gh-pages@v3
-#         if: github.ref == 'refs/heads/develop'
-#         with:
-#           github_token: ${{secrets.GITHUB_TOKEN }}
-#           publish_dir: ./my-react-app
-          
+        
       - name: Deploy with gh-pages
         working-directory: ${{env.working-directory}}
         run: |
