@@ -35,7 +35,7 @@ jobs:
       
       - run: npm i gh-pages --save-dev
         working-directory: ${{env.working-directory}}
-      - run: git config --local user.email "$env:SUPER_SECRET"
+      - run: git config --local user.email "mm.katatumuri.48@gmail.com"
         working-directory: ${{env.working-directory}}
       - run: git config --local user.name "katatumuri-maimai"
         working-directory: ${{env.working-directory}}
