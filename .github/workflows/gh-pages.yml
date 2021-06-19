@@ -2,9 +2,9 @@ name: github pages
 
 on:
   push:
-    branches: [develop]
+    branches: [katatumuri-maimai-patch-1]
   pull_request:
-    branches: [develop]
+    branches: [katatumuri-maimai-patch-1]
 
 jobs:
   deploy:
