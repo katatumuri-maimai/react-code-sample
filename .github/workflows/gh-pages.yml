@@ -2,9 +2,9 @@ name: github pages
 
 on:
   push:
-    branches: [develop]
+    branches: [katatumuri-maimai-patch-1]
   pull_request:
-    branches: [develop]
+    branches: [katatumuri-maimai-patch-1]
 
 jobs:
   deploy:
@@ -28,27 +28,30 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - run: npm ci
-        working-directory: ${{env.working-directory}}
-      - run: npm run build
-        working-directory: ${{env.working-directory}}
-      
+#       - run: npm ci
+#         working-directory: ${{env.working-directory}}
       - run: npm i gh-pages --save-dev
         working-directory: ${{env.working-directory}}
-      - run: git config --local user.email "mm.katatumuri.48@gmail.com"
-        working-directory: ${{env.working-directory}}
-      - run: git config --local user.name "katatumuri-maimai"
-        working-directory: ${{env.working-directory}}
-      - run: git config --global credential.helper wincred
-        working-directory: ${{env.working-directory}}
-      - run: npm run deploy
-        working-directory: ${{env.working-directory}}
-      - run: gh-pages -d build
-        working-directory: ${{env.working-directory}}
+#       - run: git config --local user.email "action@github.com"
+#         working-directory: ${{env.working-directory}}
+#       - run: git config --local user.name "GitHub Action"
+#         working-directory: ${{env.working-directory}}
+#       - run: npm run deploy
+#         working-directory: ${{env.working-directory}}
+#       - run: gh-pages -d build
+#         working-directory: ${{env.working-directory}}
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/develop'
-        with:
-          github_token: ${{secrets.GITHUB_TOKEN }}
-          publish_dir: ./my-react-app
+#       - name: Deploy
+#         uses: peaceiris/actions-gh-pages@v3
+#         if: github.ref == 'refs/heads/develop'
+#         with:
+#           github_token: ${{secrets.GITHUB_TOKEN }}
+#           publish_dir: ./my-react-app
+          
+      - name: Deploy with gh-pages
+        working-directory: ${{env.working-directory}}
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
