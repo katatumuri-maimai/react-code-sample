@@ -28,22 +28,29 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - run: npm ci
-        working-directory: ${{env.working-directory}}
-      - run: npm i gh-pages --save-dev
-        working-directory: ${{env.working-directory}}
-      - run: git config --local user.email "action@github.com"
-        working-directory: ${{env.working-directory}}
-      - run: git config --local user.name "GitHub Action"
-        working-directory: ${{env.working-directory}}
-      - run: npm run deploy
-        working-directory: ${{env.working-directory}}
-      - run: gh-pages -d build
-        working-directory: ${{env.working-directory}}
+#       - run: npm ci
+#         working-directory: ${{env.working-directory}}
+#       - run: npm i gh-pages --save-dev
+#         working-directory: ${{env.working-directory}}
+#       - run: git config --local user.email "action@github.com"
+#         working-directory: ${{env.working-directory}}
+#       - run: git config --local user.name "GitHub Action"
+#         working-directory: ${{env.working-directory}}
+#       - run: npm run deploy
+#         working-directory: ${{env.working-directory}}
+#       - run: gh-pages -d build
+#         working-directory: ${{env.working-directory}}
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/develop'
-        with:
-          github_token: ${{secrets.GITHUB_TOKEN }}
-          publish_dir: ./my-react-app
+#       - name: Deploy
+#         uses: peaceiris/actions-gh-pages@v3
+#         if: github.ref == 'refs/heads/develop'
+#         with:
+#           github_token: ${{secrets.GITHUB_TOKEN }}
+#           publish_dir: ./my-react-app
+          
+      - name: Deploy with gh-pages
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
