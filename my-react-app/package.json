@@ -1,7 +1,7 @@
 {
   "name": "my-react-app",
   "version": "0.1.0",
-  "homepage": " https：// $ GITHUB_ACTOR：$ GITHUB_TOKEN @ github.com / $ INPUT_REPO .git ",
+  "homepage": "https://katatumuri-maimai.github.io/react-code-sample/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
