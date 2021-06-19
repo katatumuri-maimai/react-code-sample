@@ -35,9 +35,9 @@ jobs:
       
       - run: npm i gh-pages --save-dev
         working-directory: ${{env.working-directory}}
-      - run: git config --local user.email ${{ secrets.SuperSecret }}
+      - run: git config --local user.email "action@github.com"
         working-directory: ${{env.working-directory}}
-      - run: git config --local user.name ${{ secrets.SuperSecret }}
+      - run: git config --local user.name "GitHub Action"
         working-directory: ${{env.working-directory}}
       - run: git config --global credential.helper wincred
         working-directory: ${{env.working-directory}}
