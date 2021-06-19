@@ -37,7 +37,7 @@ jobs:
         working-directory: ${{env.working-directory}}
       - run: git config --local user.email "$env:SUPER_SECRET"
         working-directory: ${{env.working-directory}}
-      - run: git config --local user.name katatumuri-maimai
+      - run: git config --local user.name "katatumuri-maimai"
         working-directory: ${{env.working-directory}}
       - run: npm run deploy
         working-directory: ${{env.working-directory}}
