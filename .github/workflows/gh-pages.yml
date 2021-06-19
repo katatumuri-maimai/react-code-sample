@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-18.04
     env:
        working-directory: ./my-react-app
+       SUPER_SECRET: ${{ secrets.SuperSecret }}
     steps:
       - uses: actions/checkout@v2
 
@@ -34,9 +35,9 @@ jobs:
       
       - run: npm i gh-pages --save-dev
         working-directory: ${{env.working-directory}}
-      - run: git config --local user.email ${{secrets.MY_SECRET_MAIL}}
+      - run: git config --local user.email "$env:SUPER_SECRET"
         working-directory: ${{env.working-directory}}
-      - run: git config --local user.name ${{secrets.MY_SECRET_NAME}}
+      - run: git config --local user.name "$env:SUPER_SECRET"
         working-directory: ${{env.working-directory}}
       - run: npm run deploy
         working-directory: ${{env.working-directory}}
