@@ -1,0 +1,10 @@
+#global_nav{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  max-width: 300px;
+  min-height: 100%;
+  overflow: auto;
+  padding: 10px;
+  background-color: #FFF;
+}

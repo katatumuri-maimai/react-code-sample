@@ -18,6 +18,7 @@ class Modal extends React.Component {
 
 
 
+
 // 親コンポーネント
 class Modal_ClassComponent extends React.Component {
   constructor(props) {
@@ -45,7 +46,7 @@ class Modal_ClassComponent extends React.Component {
 
   render(){
       return (
-        <div id="modalpage" className="modalpage">
+        <div className="modalpage">
           <h2>クラスコンポーネント</h2>
             <button onClick={(event)=>{this.openModal(event)}}>モーダルを開く</button>
 
