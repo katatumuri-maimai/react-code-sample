@@ -30,16 +30,11 @@ jobs:
 
       - run: npm ci
         working-directory: ${{env.working-directory}}
-      - run: npm run build
-        working-directory: ${{env.working-directory}}
-      
       - run: npm i gh-pages --save-dev
         working-directory: ${{env.working-directory}}
       - run: git config --local user.email "action@github.com"
         working-directory: ${{env.working-directory}}
       - run: git config --local user.name "GitHub Action"
-        working-directory: ${{env.working-directory}}
-      - run: git config --global credential.helper wincred
         working-directory: ${{env.working-directory}}
       - run: npm run deploy
         working-directory: ${{env.working-directory}}
