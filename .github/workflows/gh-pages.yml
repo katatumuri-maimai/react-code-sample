@@ -39,6 +39,8 @@ jobs:
         working-directory: ${{env.working-directory}}
       - run: git config --local user.name "katatumuri-maimai"
         working-directory: ${{env.working-directory}}
+      - run: git config --global credential.helper wincred
+        working-directory: ${{env.working-directory}}
       - run: npm run deploy
         working-directory: ${{env.working-directory}}
       - run: gh-pages -d build
