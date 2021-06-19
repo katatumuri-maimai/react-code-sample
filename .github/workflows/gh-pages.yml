@@ -30,8 +30,8 @@ jobs:
 
 #       - run: npm ci
 #         working-directory: ${{env.working-directory}}
-#       - run: npm i gh-pages --save-dev
-#         working-directory: ${{env.working-directory}}
+      - run: npm i gh-pages --save-dev
+        working-directory: ${{env.working-directory}}
 #       - run: git config --local user.email "action@github.com"
 #         working-directory: ${{env.working-directory}}
 #       - run: git config --local user.name "GitHub Action"
