@@ -16,9 +16,6 @@ class Modal extends React.Component {
 }}
 
 
-
-
-
 // 親コンポーネント
 class Modal_ClassComponent extends React.Component {
   constructor(props) {
