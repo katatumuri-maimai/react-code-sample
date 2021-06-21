@@ -21,7 +21,7 @@ export default function Modal_FunctionComponent(){
 
   const[isModalOpen,setIsModalOpen]=useState(false)
 
-  const closeModal= useCallback((event) =>{
+  const closeModal= useCallback(() =>{
     setIsModalOpen(false)
     document.removeEventListener('click',closeModal)
   },[])
@@ -45,7 +45,7 @@ export default function Modal_FunctionComponent(){
       <h2>関数コンポーネント</h2>
       <button onClick={(event)=>{openModal(event)}}>モーダルを開く</button>
 
-      {isModalOpen? <Modal onClick={(event)=>{closeModal(event)}}/> :""}
+      {isModalOpen? <Modal onClick={()=>{closeModal()}}/> :""}
 
     </div>
   );
