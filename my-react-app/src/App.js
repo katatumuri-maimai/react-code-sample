@@ -6,7 +6,6 @@ import GlobalNav from './_components/GlobalNav';
 console.log(window.location.href);
 console.log(window.history.state);
 
-
 function App() {
   return (
   <BrowserRouter>
