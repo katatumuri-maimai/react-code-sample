@@ -30,7 +30,7 @@ export default function Modal_FunctionComponent(){
     return ()=>{
       document.removeEventListener('click',closeModal)
     }
-  },[])
+  },[closeModal])
 
 
   function openModal(event){
