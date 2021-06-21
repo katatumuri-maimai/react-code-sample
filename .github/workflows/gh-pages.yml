@@ -4,12 +4,13 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [develop]
+    branches: [main]
     types: [closed]
 
 jobs:
   deploy:
     runs-on: ubuntu-18.04
+    if: github.event.pull_request.merged == true
     env:
        working-directory: ./my-react-app
        SUPER_SECRET: ${{ secrets.SuperSecret }}
